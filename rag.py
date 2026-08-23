@@ -18,7 +18,8 @@ def call_groq_with_retry(messages, temperature=0.1, max_tokens=4000, retries=2):
     Primary: llama-3.3-70b-versatile
     Fallbacks: llama-3.1-8b-instant, gemma2-9b-it
     """
-    fallback_models = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "gemma2-9b-it"]
+    # Updated 2026-08-23: llama/gemma models removed from Groq, using current available models
+    fallback_models = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b", "groq/compound"]
 
     for model_name in fallback_models:
         for attempt in range(retries):
